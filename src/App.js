@@ -1,5 +1,5 @@
 import {Route, Switch, Redirect} from 'react-router-dom'
-
+import {HashRouter as Router} from 'react-router-dom'
 import LoginForm from './components/LoginForm'
 import Home from './components/Home'
 import Products from './components/Products'
@@ -11,6 +11,7 @@ import ProtectedRoute from './components/ProtectedRoute'
 import './App.css'
 
 const App = () => (
+  <Router>
   <Switch>
     <Route exact path="/login" component={LoginForm} />
     <ProtectedRoute exact path="/" component={Home} />
@@ -20,6 +21,7 @@ const App = () => (
     <Route path="/not-found" component={NotFound} />
     <Redirect to="not-found" />
   </Switch>
+</Router>
 )
 
 export default App
